@@ -15,7 +15,9 @@ function newItem(){
     function crossOut(){
         li.toggleClass('strike');
     }
-    li.on('click',crossOut);
+        li.on('dbclick', function crossOut(){
+            li.toggleClass('strike');
+        });
 
     //adding delete button
     let deleteButton = $(<button>X</button>);
@@ -29,5 +31,5 @@ function newItem(){
     deleteButton.on('click', deleteItem);
 
     //change order of list
-    $('#list').sortable();
+    $('#list').sortable();// list is sortable using mouse
 }
