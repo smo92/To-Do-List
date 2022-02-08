@@ -10,22 +10,24 @@ function newItem(){
     }else{
         $('#list').append(li);
     }
+
+    //crossout function
+        li.on('dblclick', function(){
+            li.addClass('strike');
+        });
     
-    //put line through items when clicked
-    li.on('dbclick', function(){
-     li.addClass('strike');
-   });
 
     //adding delete button
-    let crossOutButton = $('<crossOutButton></crossOutButton>');
-      crossOutButton.append(document.createTextNode('X'));
-      li.append(crossOutButton);
-      crossOutButton.on('click', deleteItem);
+    let deleteButton = $('<button>X</button>');
+    deleteButton.addClass("crossOutButton");
+    li.append(deleteButton);
 
     //delete list item when button is clicked
     function deleteItem(){
         li.addClass('delete');
     }
+
+    deleteButton.on('click',deleteItem)
 
     //change order of list
     $('#list').sortable();// list is sortable using mouse
